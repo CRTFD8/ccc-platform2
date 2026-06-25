@@ -1,0 +1,1567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CCC Creative — On-Demand Media & Marketing</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --black: #080808;
+    --deep: #111111;
+    --card: #161616;
+    --border: #242424;
+    --gold: #C9A84C;
+    --gold-light: #E4C76B;
+    --gold-dim: #7A6130;
+    --white: #F0F0F0;
+    --muted: #888888;
+    --green: #2ECC71;
+    --font-display: 'Bebas Neue', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --font-condensed: 'Barlow Condensed', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(8,8,8,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 28px;
+    height: 64px;
+  }
+
+  .nav-logo {
+    font-family: var(--font-display);
+    font-size: 26px;
+    letter-spacing: 2px;
+    color: var(--gold);
+    text-decoration: none;
+  }
+
+  .nav-logo span { color: var(--white); }
+
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--white); }
+
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .btn-ghost {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--white);
+    padding: 8px 18px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-family: var(--font-body);
+    cursor: pointer;
+    transition: border-color 0.2s;
+  }
+
+  .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+  .btn-gold {
+    background: var(--gold);
+    border: none;
+    color: var(--black);
+    padding: 9px 20px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 700;
+    font-family: var(--font-body);
+    cursor: pointer;
+    transition: background 0.2s;
+    letter-spacing: 0.3px;
+  }
+
+  .btn-gold:hover { background: var(--gold-light); }
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 88vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 80px 28px 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(201,168,76,0.1);
+    border: 1px solid var(--gold-dim);
+    color: var(--gold);
+    padding: 6px 14px;
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+  }
+
+  .badge-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--green);
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  .hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(64px, 10vw, 120px);
+    line-height: 0.92;
+    letter-spacing: 2px;
+    max-width: 800px;
+    margin-bottom: 28px;
+  }
+
+  .hero h1 em {
+    font-style: normal;
+    color: var(--gold);
+  }
+
+  .hero-sub {
+    font-size: 18px;
+    color: var(--muted);
+    max-width: 520px;
+    line-height: 1.7;
+    margin-bottom: 44px;
+    font-weight: 300;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--gold);
+    color: var(--black);
+    border: none;
+    padding: 16px 36px;
+    font-size: 15px;
+    font-weight: 700;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: var(--font-body);
+    letter-spacing: 0.5px;
+    transition: background 0.2s, transform 0.15s;
+  }
+
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--white);
+    border: 1px solid var(--border);
+    padding: 16px 36px;
+    font-size: 15px;
+    font-weight: 500;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: var(--font-body);
+    transition: border-color 0.2s;
+  }
+
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+  .hero-stats {
+    display: flex;
+    gap: 48px;
+    margin-top: 64px;
+    padding-top: 40px;
+    border-top: 1px solid var(--border);
+    width: 100%;
+  }
+
+  .stat-item {}
+  .stat-num {
+    font-family: var(--font-display);
+    font-size: 42px;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .stat-label {
+    font-size: 12px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 4px;
+  }
+
+  /* ─── MARQUEE ─── */
+  .marquee-wrap {
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: var(--deep);
+    overflow: hidden;
+    padding: 14px 0;
+  }
+
+  .marquee-track {
+    display: flex;
+    gap: 60px;
+    animation: marquee 22s linear infinite;
+    white-space: nowrap;
+  }
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  .marquee-item {
+    font-family: var(--font-condensed);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    flex-shrink: 0;
+  }
+
+  .marquee-item .sep { color: var(--gold); margin: 0 20px; }
+
+  /* ─── SECTION HEADERS ─── */
+  .section { padding: 80px 28px; max-width: 1200px; margin: 0 auto; }
+  .section-full { padding: 80px 28px; }
+
+  .section-label {
+    font-family: var(--font-condensed);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(36px, 5vw, 58px);
+    line-height: 1;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+  }
+
+  .section-sub {
+    color: var(--muted);
+    font-size: 15px;
+    max-width: 480px;
+    line-height: 1.7;
+    margin-bottom: 48px;
+  }
+
+  /* ─── HOW IT WORKS ─── */
+  .how-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .how-step {
+    background: var(--card);
+    padding: 36px 28px;
+    position: relative;
+  }
+
+  .step-num {
+    font-family: var(--font-display);
+    font-size: 72px;
+    color: var(--border);
+    line-height: 1;
+    position: absolute;
+    top: 16px;
+    right: 20px;
+  }
+
+  .step-icon {
+    font-size: 28px;
+    margin-bottom: 16px;
+  }
+
+  .step-title {
+    font-weight: 700;
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: var(--white);
+  }
+
+  .step-desc { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+  /* ─── SERVICES ─── */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+
+  .service-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: border-color 0.25s, transform 0.2s;
+    position: relative;
+  }
+
+  .service-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-3px);
+  }
+
+  .card-header {
+    padding: 28px 24px 20px;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+  }
+
+  .card-emoji { font-size: 32px; margin-bottom: 14px; display: block; }
+
+  .card-title {
+    font-family: var(--font-condensed);
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: var(--white);
+    margin-bottom: 6px;
+  }
+
+  .card-desc { font-size: 13px; color: var(--muted); line-height: 1.5; }
+
+  .eta-badge {
+    position: absolute;
+    top: 20px;
+    right: 18px;
+    background: rgba(46,204,113,0.12);
+    border: 1px solid rgba(46,204,113,0.3);
+    color: var(--green);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    padding: 4px 10px;
+    border-radius: 100px;
+  }
+
+  .card-tiers {
+    padding: 16px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .tier-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 14px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  .tier-row:hover { border-color: var(--gold-dim); background: rgba(201,168,76,0.05); }
+  .tier-row.selected { border-color: var(--gold); background: rgba(201,168,76,0.08); }
+
+  .tier-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--white);
+  }
+
+  .tier-time {
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+
+  .tier-price {
+    font-family: var(--font-condensed);
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--gold);
+  }
+
+  .card-cta {
+    padding: 16px 24px 24px;
+  }
+
+  .btn-order {
+    width: 100%;
+    background: var(--gold);
+    color: var(--black);
+    border: none;
+    padding: 13px;
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: var(--font-body);
+    letter-spacing: 0.3px;
+    transition: background 0.2s;
+  }
+
+  .btn-order:hover { background: var(--gold-light); }
+
+  /* ─── SPEED STRIP ─── */
+  .speed-strip {
+    background: var(--gold);
+    color: var(--black);
+    padding: 60px 28px;
+    text-align: center;
+  }
+
+  .speed-strip h2 {
+    font-family: var(--font-display);
+    font-size: clamp(40px, 6vw, 72px);
+    letter-spacing: 2px;
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+
+  .speed-strip p {
+    font-size: 16px;
+    font-weight: 500;
+    opacity: 0.8;
+    max-width: 500px;
+    margin: 0 auto 36px;
+  }
+
+  .speed-features {
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+  }
+
+  .speed-feat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .speed-feat-icon { font-size: 28px; }
+  .speed-feat-label { font-size: 13px; font-weight: 700; letter-spacing: 0.5px; }
+
+  /* ─── TESTIMONIALS ─── */
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+
+  .testimonial-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 28px 24px;
+  }
+
+  .stars { color: var(--gold); font-size: 14px; letter-spacing: 2px; margin-bottom: 14px; }
+
+  .testimonial-text {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 20px;
+    font-style: italic;
+  }
+
+  .testimonial-author {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--white);
+  }
+
+  .testimonial-role { font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+  /* ─── MEMBERSHIP ─── */
+  .membership-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+
+  .plan-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 32px 28px;
+    position: relative;
+    transition: border-color 0.2s;
+  }
+
+  .plan-card.featured {
+    border-color: var(--gold);
+    background: linear-gradient(135deg, #161616 0%, #1c1810 100%);
+  }
+
+  .plan-badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--gold);
+    color: var(--black);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 4px 16px;
+    border-radius: 100px;
+    white-space: nowrap;
+  }
+
+  .plan-name {
+    font-family: var(--font-display);
+    font-size: 28px;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
+
+  .plan-price {
+    font-family: var(--font-display);
+    font-size: 52px;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .plan-period { font-size: 13px; color: var(--muted); margin-bottom: 28px; }
+
+  .plan-features { list-style: none; margin-bottom: 32px; }
+
+  .plan-features li {
+    font-size: 13px;
+    color: var(--muted);
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .plan-features li:last-child { border-bottom: none; }
+
+  .check { color: var(--green); font-size: 14px; flex-shrink: 0; }
+  .x-mark { color: #555; font-size: 14px; flex-shrink: 0; }
+
+  /* ─── ORDER MODAL ─── */
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+    backdrop-filter: blur(4px);
+  }
+
+  .modal-overlay.open { opacity: 1; pointer-events: all; }
+
+  .modal {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    width: 100%;
+    max-width: 540px;
+    max-height: 90vh;
+    overflow-y: auto;
+    transform: translateY(20px);
+    transition: transform 0.3s;
+  }
+
+  .modal-overlay.open .modal { transform: translateY(0); }
+
+  .modal-header {
+    padding: 28px 28px 20px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .modal-title {
+    font-family: var(--font-display);
+    font-size: 28px;
+    letter-spacing: 1px;
+  }
+
+  .modal-close {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: color 0.2s, border-color 0.2s;
+  }
+
+  .modal-close:hover { color: var(--white); border-color: var(--white); }
+
+  .modal-body { padding: 24px 28px; }
+
+  .countdown-box {
+    background: rgba(46,204,113,0.08);
+    border: 1px solid rgba(46,204,113,0.2);
+    border-radius: 8px;
+    padding: 18px 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 24px;
+  }
+
+  .countdown-icon { font-size: 24px; }
+  .countdown-label { font-size: 12px; color: var(--green); font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
+  .countdown-time { font-family: var(--font-display); font-size: 28px; color: var(--green); line-height: 1; }
+
+  .form-group { margin-bottom: 18px; }
+  .form-label { font-size: 12px; font-weight: 600; color: var(--muted); letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 8px; display: block; }
+
+  .form-input {
+    width: 100%;
+    background: var(--deep);
+    border: 1px solid var(--border);
+    color: var(--white);
+    padding: 12px 16px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-family: var(--font-body);
+    transition: border-color 0.2s;
+    outline: none;
+  }
+
+  .form-input:focus { border-color: var(--gold); }
+
+  .form-textarea {
+    width: 100%;
+    background: var(--deep);
+    border: 1px solid var(--border);
+    color: var(--white);
+    padding: 12px 16px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-family: var(--font-body);
+    resize: vertical;
+    min-height: 90px;
+    transition: border-color 0.2s;
+    outline: none;
+  }
+
+  .form-textarea:focus { border-color: var(--gold); }
+
+  .speed-select {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+
+  .speed-opt {
+    background: var(--deep);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 12px 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  .speed-opt:hover { border-color: var(--gold-dim); }
+  .speed-opt.active { border-color: var(--gold); background: rgba(201,168,76,0.08); }
+
+  .speed-opt-name { font-size: 13px; font-weight: 600; color: var(--white); }
+  .speed-opt-time { font-size: 11px; color: var(--muted); margin: 3px 0; }
+  .speed-opt-price { font-family: var(--font-condensed); font-size: 16px; font-weight: 700; color: var(--gold); }
+
+  .order-summary {
+    background: var(--deep);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 18px 20px;
+    margin-bottom: 20px;
+  }
+
+  .summary-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    color: var(--muted);
+    padding: 6px 0;
+  }
+
+  .summary-row.total {
+    border-top: 1px solid var(--border);
+    margin-top: 8px;
+    padding-top: 14px;
+    color: var(--white);
+    font-weight: 700;
+    font-size: 15px;
+  }
+
+  .summary-row.total span:last-child { color: var(--gold); }
+
+  .btn-submit {
+    width: 100%;
+    background: var(--gold);
+    color: var(--black);
+    border: none;
+    padding: 16px;
+    font-size: 15px;
+    font-weight: 800;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: var(--font-body);
+    letter-spacing: 0.5px;
+    transition: background 0.2s;
+  }
+
+  .btn-submit:hover { background: var(--gold-light); }
+
+  /* ─── SUCCESS STATE ─── */
+  .success-screen {
+    display: none;
+    text-align: center;
+    padding: 40px 28px;
+  }
+
+  .success-screen.visible { display: block; }
+
+  .success-icon { font-size: 60px; margin-bottom: 20px; }
+  .success-title { font-family: var(--font-display); font-size: 40px; margin-bottom: 12px; }
+  .success-msg { color: var(--muted); font-size: 15px; line-height: 1.6; margin-bottom: 28px; }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--deep);
+    border-top: 1px solid var(--border);
+    padding: 60px 28px 36px;
+  }
+
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 48px;
+  }
+
+  .footer-logo {
+    font-family: var(--font-display);
+    font-size: 30px;
+    letter-spacing: 2px;
+    color: var(--gold);
+    margin-bottom: 14px;
+  }
+
+  .footer-tagline { font-size: 13px; color: var(--muted); line-height: 1.6; max-width: 260px; }
+
+  .footer-col-title {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 16px;
+  }
+
+  .footer-links { list-style: none; }
+
+  .footer-links li { margin-bottom: 10px; }
+  .footer-links a { font-size: 13px; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--gold); }
+
+  .footer-bottom {
+    max-width: 1200px;
+    margin: 40px auto 0;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  /* ─── TICKER ─── */
+  .live-ticker {
+    background: var(--deep);
+    border-bottom: 1px solid var(--border);
+    padding: 10px 28px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-size: 12px;
+    overflow: hidden;
+  }
+
+  .ticker-label {
+    background: var(--gold);
+    color: var(--black);
+    font-weight: 800;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 3px;
+    flex-shrink: 0;
+  }
+
+  .ticker-items {
+    display: flex;
+    gap: 40px;
+    animation: ticker 20s linear infinite;
+    white-space: nowrap;
+  }
+
+  @keyframes ticker {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  .ticker-item { color: var(--muted); flex-shrink: 0; }
+  .ticker-item strong { color: var(--white); margin-right: 4px; }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 768px) {
+    nav { padding: 0 16px; }
+    .nav-links { display: none; }
+    .hero { padding: 60px 16px 40px; }
+    .hero-stats { gap: 28px; flex-wrap: wrap; }
+    .section { padding: 60px 16px; }
+    .footer-inner { grid-template-columns: 1fr 1fr; }
+    .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+    .speed-features { gap: 28px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- LIVE TICKER -->
+<div class="live-ticker">
+  <span class="ticker-label">LIVE</span>
+  <div class="ticker-items">
+    <span class="ticker-item"><strong>@GlazeMoneyOfficial</strong> — EP cover delivered in 3h 12m</span>
+    <span class="ticker-item"><strong>@NeenaBrown</strong> — Promo pack completed</span>
+    <span class="ticker-item"><strong>Toronto Artist</strong> — Rush mix delivered 47 min early ⚡</span>
+    <span class="ticker-item"><strong>Indie Label</strong> — Press kit ordered · ETA 2h 30m</span>
+    <span class="ticker-item"><strong>@GlazeMoneyOfficial</strong> — EP cover delivered in 3h 12m</span>
+    <span class="ticker-item"><strong>@NeenaBrown</strong> — Promo pack completed</span>
+    <span class="ticker-item"><strong>Toronto Artist</strong> — Rush mix delivered 47 min early ⚡</span>
+    <span class="ticker-item"><strong>Indie Label</strong> — Press kit ordered · ETA 2h 30m</span>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">CCC<span>CREATIVE</span></a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#how">How It Works</a></li>
+    <li><a href="#membership">Membership</a></li>
+    <li><a href="#about">About</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="btn-ghost">Log In</button>
+    <button class="btn-gold" onclick="openModal('Starter Pack', 'Branding', '$299', '24h')">Get Started</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section>
+  <div class="hero">
+    <div class="hero-badge">
+      <span class="badge-dot"></span>
+      Services Active Now · Toronto & Worldwide
+    </div>
+    <h1>MEDIA &<br>MARKETING<br><em>ON DEMAND.</em></h1>
+    <p class="hero-sub">Order premium creative services — branding, mixing, press kits, motion art, and more — and receive your deliverables in hours, not weeks. Certified Cash. Certified Fast.</p>
+    <div class="hero-actions">
+      <button class="btn-primary" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">Browse Services</button>
+      <button class="btn-outline" onclick="document.getElementById('how').scrollIntoView({behavior:'smooth'})">How It Works</button>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num">500+</div>
+        <div class="stat-label">Artists Served</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">97%</div>
+        <div class="stat-label">On-Time Delivery</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">2h</div>
+        <div class="stat-label">Average Turnaround</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">17yr</div>
+        <div class="stat-label">Industry Experience</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span class="marquee-item">Mixing & Mastering<span class="sep">◆</span></span>
+    <span class="marquee-item">Visual Branding<span class="sep">◆</span></span>
+    <span class="marquee-item">Press Kits<span class="sep">◆</span></span>
+    <span class="marquee-item">Motion Art<span class="sep">◆</span></span>
+    <span class="marquee-item">Social Media Packages<span class="sep">◆</span></span>
+    <span class="marquee-item">Artist Development<span class="sep">◆</span></span>
+    <span class="marquee-item">Distribution Strategy<span class="sep">◆</span></span>
+    <span class="marquee-item">Sync Licensing<span class="sep">◆</span></span>
+    <span class="marquee-item">Mixing & Mastering<span class="sep">◆</span></span>
+    <span class="marquee-item">Visual Branding<span class="sep">◆</span></span>
+    <span class="marquee-item">Press Kits<span class="sep">◆</span></span>
+    <span class="marquee-item">Motion Art<span class="sep">◆</span></span>
+    <span class="marquee-item">Social Media Packages<span class="sep">◆</span></span>
+    <span class="marquee-item">Artist Development<span class="sep">◆</span></span>
+    <span class="marquee-item">Distribution Strategy<span class="sep">◆</span></span>
+    <span class="marquee-item">Sync Licensing<span class="sep">◆</span></span>
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<div id="how">
+  <div class="section">
+    <div class="section-label">The Process</div>
+    <h2 class="section-title">ORDER IN MINUTES.<br>RECEIVE IN HOURS.</h2>
+    <p class="section-sub">Built for artists who can't afford to wait. Our process cuts the back-and-forth and gets results straight to you.</p>
+    <div class="how-grid">
+      <div class="how-step">
+        <div class="step-num">1</div>
+        <div class="step-icon">🎯</div>
+        <div class="step-title">Pick Your Service</div>
+        <div class="step-desc">Browse our menu of creative services. Each one shows a live delivery estimate before you commit.</div>
+      </div>
+      <div class="how-step">
+        <div class="step-num">2</div>
+        <div class="step-icon">⚡</div>
+        <div class="step-title">Choose Your Speed</div>
+        <div class="step-desc">Standard, Rush, or Express. Need it in 2 hours? We've got a tier for that.</div>
+      </div>
+      <div class="how-step">
+        <div class="step-num">3</div>
+        <div class="step-icon">💳</div>
+        <div class="step-title">Pay & Submit Brief</div>
+        <div class="step-desc">Fill out your brief in under 3 minutes. Your countdown clock starts the moment you submit.</div>
+      </div>
+      <div class="how-step">
+        <div class="step-num">4</div>
+        <div class="step-icon">📦</div>
+        <div class="step-title">Receive Deliverables</div>
+        <div class="step-desc">Download your finished work directly from your dashboard — no waiting on emails.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<div id="services">
+  <div class="section">
+    <div class="section-label">Services</div>
+    <h2 class="section-title">WHAT CAN WE<br>BUILD FOR YOU?</h2>
+    <p class="section-sub">Every service comes with a guaranteed delivery window. No delays, no excuses.</p>
+
+    <div class="services-grid">
+
+      <!-- Card 1: Mixing & Mastering -->
+      <div class="service-card">
+        <div class="card-header">
+          <span class="card-emoji">🎚️</span>
+          <div class="card-title">Mixing & Mastering</div>
+          <div class="card-desc">Radio-ready sound from CCC's in-house engineers. Upload your stems, get back a polished mix.</div>
+          <span class="eta-badge">⚡ As fast as 2h</span>
+        </div>
+        <div class="card-tiers">
+          <div class="tier-row" onclick="selectTier(this, '$149', '48h')">
+            <div>
+              <div class="tier-name">Standard Mix</div>
+              <div class="tier-time">Delivered in 48 hours</div>
+            </div>
+            <div class="tier-price">$149</div>
+          </div>
+          <div class="tier-row" onclick="selectTier(this, '$249', '12h')">
+            <div>
+              <div class="tier-name">Rush Mix</div>
+              <div class="tier-time">Delivered in 12 hours</div>
+            </div>
+            <div class="tier-price">$249</div>
+          </div>
+          <div class="tier-row" onclick="selectTier(this, '$399', '2h')">
+            <div>
+              <div class="tier-name">Express Mix</div>
+              <div class="tier-time">Delivered in 2 hours ⚡</div>
+            </div>
+            <div class="tier-price">$399</div>
+          </div>
+        </div>
+        <div class="card-cta">
+          <button class="btn-order" onclick="openModal('Mixing & Mastering', 'Audio', '$149', '48h')">Order Now</button>
+        </div>
+      </div>
+
+      <!-- Card 2: Visual Branding -->
+      <div class="service-card">
+        <div class="card-header">
+          <span class="card-emoji">🎨</span>
+          <div class="card-title">Visual Branding</div>
+          <div class="card-desc">Logo design, cover art, artist branding kits — built with the CCC luxury aesthetic.</div>
+          <span class="eta-badge">⚡ As fast as 4h</span>
+        </div>
+        <div class="card-tiers">
+          <div class="tier-row" onclick="selectTier(this, '$199', '72h')">
+            <div>
+              <div class="tier-name">Cover Art</div>
+              <div class="tier-time">Delivered in 72 hours</div>
+            </div>
+            <div class="tier-price">$199</div>
+          </div>
+          <div class="tier-row" onclick="selectTier(this, '$349', '24h')">
+            <div>
+              <div class="tier-name">Rush Branding</div>
+              <div class="tier-time">Delivered in 24 hours</div>
+            </div>
+            <div class="tier-price">$349</div>
+          </div>
+          <div class="tier-row" onclick="selectTier(this, '$599', '4h')">
+            <div>
+              <div class="tier-name">Express Brand Kit</div>
+              <div class="tier-time">Delivered in 4 hours ⚡</div>
+            </div>
+            <div class="tier-price">$599</div>
+          </div>
+        </div>
+        <div class="card-cta">
+          <button class="btn-order" onclick="openModal('Visual Branding', 'Design', '$199', '72h')">Order Now</button>
+        </div>
+      </div>
+
+      <!-- Card 3: Press Kit -->
+      <div class="service-card">
+        <div class="card-header">
+          <span class="card-emoji">📰</span>
+          <div class="card-title">Artist Press Kit</div>
+          <div class="card-desc">EPK, bio, one-sheet, and press photos — everything you need to pitch blogs, labels, and venues.</div>
+          <span class="eta-badge">⚡ As fast as 6h</span>
+        </div>
+        <div class="card-tiers">
+          <div class="tier-row" onclick="selectTier(this, '$129', '48h')">
+            <div>
+              <div class="tier-name">Basic EPK</div>
+              <div class="tier-time">Delivered in 48 hours</div>
+            </div>
+            <div class="tier-price">$129</div>
+          </div>
+          <div class="tier-row" onclick="selectTier(this, '$279', '24h')">
+            <div>
+              <div class="tier-name">Full Press Pack</div>
+              <div class="tier-time">Delivered in 24 hours</div>
+            </div>
+            <div class="tier-price">$279</div>
+          </div>
+          <div class="tier-row" onclick="selectTier(this, '$449', '6h')">
+            <div>
+              <div class="tier-name">Express EPK</div>
+              <div class="tier-time">Delivered in 6 hours ⚡</div>
+            </div>
+            <div class="tier-price">$449</div>
+          </div>
+        </div>
+        <div class="card-cta">
+          <button class="btn-order" onclick="openModal('Artist Press Kit', 'PR', '$129', '48h')">Order Now</button>
+        </div>
+      </div>
+
+      <!-- Card 4: Social Media Package -->
+      <div class="service-card">
+        <div class="card-header">
+          <span class="card-emoji">📱</span>
+          <div class="card-title">Social Media Package</div>
+          <div class="card-desc">Content calendar, caption copy, story templates, and posting strategy — done for you.</div>
+          <span class="eta-badge">⚡ As fast as 4h</span>
+        </div>
+        <div class="card-tiers">
+          <div class="tier-row" onclick="selectTier(this, '$179', '48h')">
+            <div>
+              <div class="tier-name">Starter Pack (7 days)</div>
+              <div class="tier-time">Delivered in 48 hours</div>
+            </div>
+            <div class="tier-price">$179</div>
+          </div>
+          <div class="tier-row" onclick="selectTier(this, '$329', '24h')">
+            <div>
+              <div class="tier-name">Campaign Pack (30 days)</div>
+              <div class="tier-time">Delivered in 24 hours</div>
+            </div>
+            <div class="tier-price">$329</div>
+          </div>
+          <div class="tier-row" onclick="selectTier(this, '$549', '4h')">
+            <div>
+              <div class="tier-name">Rush Launch Pack</div>
+              <div class="tier-time">Delivered in 4 hours ⚡</div>
+            </div>
+            <div class="tier-price">$549</div>
+          </div>
+        </div>
+        <div class="card-cta">
+          <button class="btn-order" onclick="openModal('Social Media Package', 'Marketing', '$179', '48h')">Order Now</button>
+        </div>
+      </div>
+
+      <!-- Card 5: Motion Art -->
+      <div class="service-card">
+        <div class="card-header">
+          <span class="card-emoji">🎬</span>
+          <div class="card-title">Motion Art & Visuals</div>
+          <div class="card-desc">Animated album art, lyric videos, visualizers, and cinemagraphs for streaming and socials.</div>
+          <span class="eta-badge">⚡ As fast as 6h</span>
+        </div>
+        <div class="card-tiers">
+          <div class="tier-row" onclick="selectTier(this, '$299', '72h')">
+            <div>
+              <div class="tier-name">Single Visualizer</div>
+              <div class="tier-time">Delivered in 72 hours</div>
+            </div>
+            <div class="tier-price">$299</div>
+          </div>
+          <div class="tier-row" onclick="selectTier(this, '$499', '24h')">
+            <div>
+              <div class="tier-name">Lyric Video</div>
+              <div class="tier-time">Delivered in 24 hours</div>
+            </div>
+            <div class="tier-price">$499</div>
+          </div>
+          <div class="tier-row" onclick="selectTier(this, '$799', '6h')">
+            <div>
+              <div class="tier-name">Express Visual Pack</div>
+              <div class="tier-time">Delivered in 6 hours ⚡</div>
+            </div>
+            <div class="tier-price">$799</div>
+          </div>
+        </div>
+        <div class="card-cta">
+          <button class="btn-order" onclick="openModal('Motion Art & Visuals', 'Video', '$299', '72h')">Order Now</button>
+        </div>
+      </div>
+
+      <!-- Card 6: Artist Development -->
+      <div class="service-card">
+        <div class="card-header">
+          <span class="card-emoji">🚀</span>
+          <div class="card-title">Artist Development</div>
+          <div class="card-desc">Strategy session, image consultation, release roadmap, and playlist pitching — all in one.</div>
+          <span class="eta-badge">⚡ Same-day sessions</span>
+        </div>
+        <div class="card-tiers">
+          <div class="tier-row" onclick="selectTier(this, '$199', '48h')">
+            <div>
+              <div class="tier-name">Strategy Consultation</div>
+              <div class="tier-time">Booked within 48 hours</div>
+            </div>
+            <div class="tier-price">$199</div>
+          </div>
+          <div class="tier-row" onclick="selectTier(this, '$499', '24h')">
+            <div>
+              <div class="tier-name">Full Dev Package</div>
+              <div class="tier-time">Roadmap in 24 hours</div>
+            </div>
+            <div class="tier-price">$499</div>
+          </div>
+          <div class="tier-row" onclick="selectTier(this, '$899', 'Same Day')">
+            <div>
+              <div class="tier-name">Rush Mentorship</div>
+              <div class="tier-time">Same-day session ⚡</div>
+            </div>
+            <div class="tier-price">$899</div>
+          </div>
+        </div>
+        <div class="card-cta">
+          <button class="btn-order" onclick="openModal('Artist Development', 'Strategy', '$199', '48h')">Order Now</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- SPEED STRIP -->
+<div class="speed-strip">
+  <h2>WHY WAIT?</h2>
+  <p>Most creative agencies take days or weeks. We built CCC Creative to move at the speed of the music.</p>
+  <button class="btn-gold" style="font-size:15px; padding:14px 40px;" onclick="openModal('Rush Service', 'General', '$249', '6h')">Order a Rush Service Now</button>
+  <div class="speed-features">
+    <div class="speed-feat">
+      <span class="speed-feat-icon">⚡</span>
+      <span class="speed-feat-label">Delivery in Hours</span>
+    </div>
+    <div class="speed-feat">
+      <span class="speed-feat-icon">🔔</span>
+      <span class="speed-feat-label">Real-Time Updates</span>
+    </div>
+    <div class="speed-feat">
+      <span class="speed-feat-icon">🔁</span>
+      <span class="speed-feat-label">Unlimited Revisions</span>
+    </div>
+    <div class="speed-feat">
+      <span class="speed-feat-icon">🔒</span>
+      <span class="speed-feat-label">Secure Delivery Portal</span>
+    </div>
+    <div class="speed-feat">
+      <span class="speed-feat-icon">🌍</span>
+      <span class="speed-feat-label">Worldwide Access</span>
+    </div>
+  </div>
+</div>
+
+<!-- TESTIMONIALS -->
+<div>
+  <div class="section">
+    <div class="section-label">Client Wins</div>
+    <h2 class="section-title">ARTISTS MOVE<br>FASTER WITH CCC.</h2>
+    <p class="section-sub">From independent artists to full label campaigns — here's what people are saying.</p>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <div class="testimonial-text">"I ordered a rush mix at midnight and had a polished file back by 6am. Dropped the track the same day it blew up on TikTok."</div>
+        <div class="testimonial-author">Glaze Money</div>
+        <div class="testimonial-role">CCC Artist, Toronto</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <div class="testimonial-text">"The press kit they built for me got me my first blog feature within a week. Having everything done in 24 hours was insane."</div>
+        <div class="testimonial-author">Neena Brown</div>
+        <div class="testimonial-role">R&B Artist, CCC Roster</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <div class="testimonial-text">"I needed a full brand kit for a label meeting the next morning. CCC Express had it done by 2am. I walked in looking like a major."</div>
+        <div class="testimonial-author">Ace Mr. Awesome</div>
+        <div class="testimonial-role">Recording Artist, Toronto</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MEMBERSHIP -->
+<div id="membership">
+  <div class="section">
+    <div class="section-label">Membership</div>
+    <h2 class="section-title">JOIN CCC+</h2>
+    <p class="section-sub">Members get priority service slots, discounted rates, and exclusive access to new services first.</p>
+    <div class="membership-grid">
+
+      <div class="plan-card">
+        <div class="plan-name">BASIC</div>
+        <div class="plan-price">FREE</div>
+        <div class="plan-period">Always — no credit card required</div>
+        <ul class="plan-features">
+          <li><span class="check">✓</span> Access to all services</li>
+          <li><span class="check">✓</span> Standard delivery queue</li>
+          <li><span class="check">✓</span> Secure file portal</li>
+          <li><span class="x-mark">✕</span> Priority queue access</li>
+          <li><span class="x-mark">✕</span> Member discount</li>
+          <li><span class="x-mark">✕</span> Early access to new services</li>
+        </ul>
+        <button class="btn-outline" style="width:100%; padding:13px; border-radius:4px; font-size:14px; font-weight:600; font-family:var(--font-body);">Create Free Account</button>
+      </div>
+
+      <div class="plan-card featured">
+        <div class="plan-badge">MOST POPULAR</div>
+        <div class="plan-name">CCC+</div>
+        <div class="plan-price">$49</div>
+        <div class="plan-period">Per month · Cancel anytime</div>
+        <ul class="plan-features">
+          <li><span class="check">✓</span> Access to all services</li>
+          <li><span class="check">✓</span> Priority delivery queue</li>
+          <li><span class="check">✓</span> Secure file portal</li>
+          <li><span class="check">✓</span> 15% off all orders</li>
+          <li><span class="check">✓</span> Early access to new services</li>
+          <li><span class="check">✓</span> Monthly strategy call (30 min)</li>
+        </ul>
+        <button class="btn-gold" style="width:100%; padding:13px; border-radius:4px; font-size:14px; font-family:var(--font-body);">Join CCC+</button>
+      </div>
+
+      <div class="plan-card">
+        <div class="plan-name">LABEL</div>
+        <div class="plan-price">$199</div>
+        <div class="plan-period">Per month · Billed quarterly</div>
+        <ul class="plan-features">
+          <li><span class="check">✓</span> Everything in CCC+</li>
+          <li><span class="check">✓</span> Multi-artist roster access</li>
+          <li><span class="check">✓</span> 25% off all orders</li>
+          <li><span class="check">✓</span> Dedicated account manager</li>
+          <li><span class="check">✓</span> Bi-weekly strategy sessions</li>
+          <li><span class="check">✓</span> Custom white-label reports</li>
+        </ul>
+        <button class="btn-ghost" style="width:100%; padding:13px; border-radius:4px; font-size:14px; font-family:var(--font-body);">Contact Us</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">CCC CREATIVE</div>
+      <p class="footer-tagline">Certified Cash Corporation's on-demand media and marketing platform. Built in Toronto. Serving artists worldwide since 2009.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Services</div>
+      <ul class="footer-links">
+        <li><a href="#">Mixing & Mastering</a></li>
+        <li><a href="#">Visual Branding</a></li>
+        <li><a href="#">Press Kits</a></li>
+        <li><a href="#">Social Media</a></li>
+        <li><a href="#">Motion Art</a></li>
+        <li><a href="#">Artist Dev</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Company</div>
+      <ul class="footer-links">
+        <li><a href="#">About CCC</a></li>
+        <li><a href="#">Our Roster</a></li>
+        <li><a href="#">Documentary</a></li>
+        <li><a href="#">CCC+ Membership</a></li>
+        <li><a href="#">Blog</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Support</div>
+      <ul class="footer-links">
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">Track Your Order</a></li>
+        <li><a href="#">Contact Us</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Service</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Certified Cash Corporation. All rights reserved.</span>
+    <span style="color: var(--gold-dim);">Toronto · Worldwide · Always Moving</span>
+  </div>
+</footer>
+
+<!-- ORDER MODAL -->
+<div class="modal-overlay" id="orderModal">
+  <div class="modal">
+    <div id="orderForm">
+      <div class="modal-header">
+        <div>
+          <div style="font-size:12px; color:var(--gold); letter-spacing:1px; text-transform:uppercase; font-weight:600; margin-bottom:6px;">Place Your Order</div>
+          <div class="modal-title" id="modalServiceName">Mixing & Mastering</div>
+        </div>
+        <button class="modal-close" onclick="closeModal()">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="countdown-box">
+          <span class="countdown-icon">⚡</span>
+          <div>
+            <div class="countdown-label">Estimated Delivery</div>
+            <div class="countdown-time" id="modalETA">48h 00m</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Your Name / Artist Name</label>
+          <input class="form-input" type="text" placeholder="e.g. Billy Burnz">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Email Address</label>
+          <input class="form-input" type="email" placeholder="you@email.com">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Choose Your Speed</label>
+          <div class="speed-select">
+            <div class="speed-opt active" onclick="selectSpeed(this, '$149', '48h')">
+              <div class="speed-opt-name">Standard</div>
+              <div class="speed-opt-time">48 hours</div>
+              <div class="speed-opt-price">$149</div>
+            </div>
+            <div class="speed-opt" onclick="selectSpeed(this, '$249', '12h')">
+              <div class="speed-opt-name">Rush</div>
+              <div class="speed-opt-time">12 hours</div>
+              <div class="speed-opt-price">$249</div>
+            </div>
+            <div class="speed-opt" onclick="selectSpeed(this, '$399', '2h')">
+              <div class="speed-opt-name">Express ⚡</div>
+              <div class="speed-opt-time">2 hours</div>
+              <div class="speed-opt-price">$399</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Project Brief</label>
+          <textarea class="form-textarea" placeholder="Tell us about your project — genre, vibe, references, key details..."></textarea>
+        </div>
+
+        <div class="order-summary">
+          <div class="summary-row"><span id="summaryService">Mixing & Mastering — Standard</span><span id="summaryPrice">$149</span></div>
+          <div class="summary-row"><span>Delivery</span><span style="color:var(--green)">⚡ 48 hours</span></div>
+          <div class="summary-row total"><span>Total Due Today</span><span id="summaryTotal">$149</span></div>
+        </div>
+
+        <button class="btn-submit" onclick="submitOrder()">Confirm & Pay →</button>
+      </div>
+    </div>
+
+    <div class="success-screen" id="successScreen">
+      <div class="success-icon">✅</div>
+      <div class="success-title">ORDER CONFIRMED</div>
+      <div class="success-msg">Your project is in queue. You'll receive a confirmation email and can track your delivery live from your dashboard. Stay certified.</div>
+      <button class="btn-gold" onclick="closeModal()" style="padding:14px 40px; font-size:14px;">Back to Services</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Modal logic
+  function openModal(service, category, price, eta) {
+    document.getElementById('modalServiceName').textContent = service;
+    document.getElementById('modalETA').textContent = eta;
+    document.getElementById('summaryService').textContent = service + ' — Standard';
+    document.getElementById('summaryPrice').textContent = price;
+    document.getElementById('summaryTotal').textContent = price;
+
+    // Reset speed opts
+    document.querySelectorAll('.speed-opt').forEach(o => o.classList.remove('active'));
+    document.querySelectorAll('.speed-opt')[0].classList.add('active');
+
+    // Reset screens
+    document.getElementById('orderForm').style.display = 'block';
+    document.getElementById('successScreen').classList.remove('visible');
+
+    document.getElementById('orderModal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    document.getElementById('orderModal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  document.getElementById('orderModal').addEventListener('click', function(e) {
+    if (e.target === this) closeModal();
+  });
+
+  function selectTier(el, price, time) {
+    el.closest('.card-tiers').querySelectorAll('.tier-row').forEach(r => r.classList.remove('selected'));
+    el.classList.add('selected');
+  }
+
+  function selectSpeed(el, price, time) {
+    document.querySelectorAll('.speed-opt').forEach(o => o.classList.remove('active'));
+    el.classList.add('active');
+    document.getElementById('modalETA').textContent = time;
+    document.getElementById('summaryPrice').textContent = price;
+    document.getElementById('summaryTotal').textContent = price;
+    const svc = document.getElementById('summaryService').textContent.split(' — ')[0];
+    const speedName = el.querySelector('.speed-opt-name').textContent.replace(' ⚡','');
+    document.getElementById('summaryService').textContent = svc + ' — ' + speedName;
+  }
+
+  function submitOrder() {
+    document.getElementById('orderForm').style.display = 'none';
+    document.getElementById('successScreen').classList.add('visible');
+  }
+
+  // Animate stats on scroll
+  const stats = document.querySelectorAll('.stat-num');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.2 });
+
+  stats.forEach(s => {
+    s.style.opacity = '0';
+    s.style.transform = 'translateY(10px)';
+    s.style.transition = 'opacity 0.5s, transform 0.5s';
+    observer.observe(s);
+  });
+</script>
+
+</body>
+</html>
